@@ -1,24 +1,33 @@
-import Header from './assets/Header'
+import Header from './components/Header'
 import './App.css'
-import { Children } from 'react'
+import {database} from './data'
+import CardContainer from './components/CardContainer'
+import Button from './components/Button/Button'
 
-function App() {
+
+export default function App() {
+  function handleClick() {
+    console.log('button clicked');
+}
   return (
     <div>
       <Header />
       <main>
-        <p>main section</p>
-        <form action="submit">
-          <input type="text" placeholder='Add some text'/>
-          <option value=""></option>
-          <button ></button>
-        </form>
+        <section>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, accusamus?</p>
+          <CardContainer name={database[0].name} description={database[0].description} />
+          <CardContainer name={database[1].name} description={database[1].description} />
+          <CardContainer name={database[2].name} description={database[2].description} />
+        </section>
+        <section>
+          <h3>Chiose your ways</h3>
+          <Button onClick={handleClick}>Button 1</Button>
+          <Button onClick={handleClick}>Button 2</Button>
+          
+        </section>
       </main>
-      <footer>
-        <p>footer</p>
-      </footer>
     </div>
   )
 }
 
-export default App
+
